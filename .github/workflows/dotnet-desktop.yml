@@ -14,14 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-    
-    - name: Set up .NET Core
-      uses: actions/setup-dotnet@v3
-      with:
-        dotnet-version: 6.0.x
+     steps:
+      - uses: actions/checkout@v4
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+      - name: Fix permissions
+        run: |
+          sudo chmod +x $GITHUB_WORKSPACE/SeleniumIDE/bin/Debug/net6.0/selenium-manager/linux/selenium-manager
 
     
 
